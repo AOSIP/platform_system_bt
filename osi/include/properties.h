@@ -19,9 +19,11 @@
 #pragma once
 
 #include <cstdint>
-
+#if defined(OS_GENERIC)
 #define PROPERTY_VALUE_MAX 92
-#define BUILD_SANITY_PROPERTY_VALUE_MAX 92
+#else
+#include <cutils/properties.h>
+#endif  // defined(OS_GENERIC)
 
 // Get value associated with key |key| into |value|.
 // Returns the length of the value which will never be greater than
